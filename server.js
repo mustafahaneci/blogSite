@@ -6,6 +6,10 @@ const mongoose = require("mongoose")
 const app = express()
 const PORT = 3000
 
+const hbs = exhbs.create({
+    defaultLayout: 'main',
+    extname: 'hbs',
+});
 
 
 const DB_URL ="mongodb+srv://mustafa123:123@cluster0.vukeh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"

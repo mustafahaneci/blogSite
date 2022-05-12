@@ -5,7 +5,7 @@ const mongoose = require("mongoose")
 const app = express()
 const PORT = 3000
 
-const DB_URL ="mongodb+srv://mustafa123:123@cluster0.vukeh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+const DB_URL ="mongodb+srv://mustafa123:123@cluster0.vukeh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 const startApp = async () => {
     try {
@@ -14,8 +14,8 @@ const startApp = async () => {
             useNewUrlParser: true
         })
         app.listen(PORT, () => console.log("server running.."))
-    } catch (error) {
-        
+    } catch (e) {
+        console.log(error)
     }
 }
 

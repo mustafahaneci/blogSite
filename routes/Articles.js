@@ -7,7 +7,8 @@ router.get("/new", (req, res) =>{
 })
 
 router.get("/:id", async (req, res) => {
-
+    const article = await Article.findById(req.params.id).lean()
+    res.render("articles/edit", {article: article})
 })
 
 router.post("/", async (req, res) => {

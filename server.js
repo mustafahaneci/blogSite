@@ -11,6 +11,9 @@ const hbs = exhbs.create({
     extname: 'hbs',
 });
 
+app.engine("hbs", hbs.engine)
+app.set("view engine", "hbs")
+
 
 const DB_URL ="mongodb+srv://mustafa123:123@cluster0.vukeh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 

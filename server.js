@@ -19,6 +19,10 @@ const hbs = exhbs.create({
 app.engine("hbs", hbs.engine)
 app.set("view engine", "hbs")
 
+app.get("/", async (req, res) => {
+    res.render("articles/index", { articles: articles })
+})
+
 app.use("/articles", articleRouter)
 
 const DB_URL ="mongodb+srv://mustafa123:123@cluster0.vukeh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"

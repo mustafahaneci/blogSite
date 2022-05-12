@@ -14,10 +14,12 @@ const hbs = exhbs.create({
     extname: 'hbs',
     layoutsDir: path.join(__dirname, "views/layouts"),
     partialsDir: path.join(__dirname, "views/partials"),
+    articlesDir: path.join(__dirname, "views/articles")
 });
 
 app.engine("hbs", hbs.engine)
 app.set("view engine", "hbs")
+app.set("views", path.join(__dirname, "views"))
 
 app.get("/", async (req, res) => {
     const articles = await Article.find({}).lean()

@@ -9,7 +9,10 @@ const DB_URL ="mongodb+srv://mustafa123:123@cluster0.vukeh.mongodb.net/myFirstDa
 
 const startApp = async () => {
     try {
-        
+        await mongoose.connect(DB_URL,{
+            useUnifiedTopology: true,
+            useNewUrlParser: true
+        })
     } catch (error) {
         
     }

@@ -21,6 +21,9 @@ app.engine("hbs", hbs.engine)
 app.set("view engine", "hbs")
 app.set("views", path.join(__dirname, "views"))
 
+app.use(express.urlencoded({extended: false}))
+app.use(express.static('public'))
+
 app.get("/", async (req, res) => {
     const articles = await Article.find({}).lean()
     res.render("articles/index", { articles: articles })

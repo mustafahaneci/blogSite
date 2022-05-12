@@ -6,10 +6,7 @@ router.get("/new", (req, res) =>{
     res.render("articles/new", {article: new Article()})
 })
 
-router.get("/:id", async (req, res) => {
-    const article = await Article.findById(req.params.id).lean()
-    res.render("articles/edit", {article: article})
-})
+
 
 router.post("/", async (req, res) => {
     let article = new Article({

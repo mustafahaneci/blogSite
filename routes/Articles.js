@@ -11,6 +11,13 @@ router.post("/", async (req, res) => {
         title: req.body.title,
         content: req.body.content,
     })
+    try {
+        article = await article.save()
+        res.redirect(`/articles/${article.id}`)
+    } catch (e) {
+        res.render("articles/new", {article: article})
+        
+    }
 })
 
 module.exports = router

@@ -20,6 +20,7 @@ app.engine("hbs", hbs.engine)
 app.set("view engine", "hbs")
 
 app.get("/", async (req, res) => {
+    const articles = await Article.find({}).lean()
     res.render("articles/index", { articles: articles })
 })
 

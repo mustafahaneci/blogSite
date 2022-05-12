@@ -9,7 +9,7 @@ router.get("/new", (req, res) =>{
 router.post("/", async (req, res) => {
     let article = new Article({
         title: req.body.title,
-        content: req.body.content,
+        content: req.body.content
     })
     try {
         article = await article.save()

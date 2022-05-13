@@ -1,0 +1,8 @@
+<div class="container">
+    <h1 class="mb-4">Düzenle</h1>
+    {{#article}}
+        <form action="/articles/{{ _id }}?_method=PUT", method="post">
+            {{> editForm}}
+        </form>
+    {{/article}}
+</div>

@@ -4,6 +4,7 @@ const mongoose = require("mongoose")
 const path = require("path");
 const Article = require("./models/article")
 const articleRouter = require("./routes/articles")
+const methodOverride = require("method-override")
 
 
 const app = express()
@@ -23,6 +24,7 @@ app.set("views", path.join(__dirname, "views"))
 
 app.use(express.urlencoded({extended: false}))
 app.use(express.static('public'))
+app.use(methodOverride("_method"))
 
 app.get("/", async (req, res) => {
     const articles = await Article.find({}).lean().sort({createdAt: "desc"})

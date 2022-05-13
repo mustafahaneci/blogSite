@@ -32,6 +32,20 @@ router.post("/", async (req, res) => {
     
 })
 
+router.put("/:id", async (req, res) => {
+    let article = await Article.findById(req.params.id)({
+        title: req.body.title,
+        content: req.body.content
+    })
+    try {
+        article = await article.save()
+        res.redirect(`/articles/${article.id}`)
+    } catch (e) {
+        res.render("articles/edit", { article: article })
+    }
+})
+
+
 router.delete("/:id", async (req, res) => {
     await Article.findByIdAndDelete(req.params.id)
     res.redirect("/")

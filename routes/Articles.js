@@ -6,7 +6,8 @@ router.get("/new", (req, res) =>{
     res.render("articles/new", {article: new Article()})
 })
 
-
+router.get("/:id", async (req, res) => {
+})
 
 router.post("/", async (req, res) => {
     let article = new Article({

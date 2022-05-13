@@ -3,10 +3,15 @@
     <a href="/articles/new" class="btn btn-success">Yeni Blog</a>
      {{#each articles}}
         <div class="card mt-4">
-                <div class="card-body">
-                    <h4 class="card-title">{{ title }}</h4>
-                    <div class="card-subtitle text-muted mb-2">
-                        {{ createdAt }}
-                    </div>
+            <div class="card-body">
+                <h4 class="card-title">{{ title }}</h4>
+                <div class="card-subtitle text-muted mb-2">
+                    {{ createdAt }}
+                </div>
+                <a href="articles/{{ _id }}" class="btn btn-primary">Daha Fazlası</a>
+                <a href="/articles/edit/{{ _id }}" class="btn btn-info">Düzenle</a>
+                <form action="articles/{{ _id }}?_method=DELETE" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                </form>
     {{/each}}
 </div>

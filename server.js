@@ -25,7 +25,7 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.static('public'))
 
 app.get("/", async (req, res) => {
-    const articles = await Article.find({}).lean()
+    const articles = await Article.find({}).lean().sort({createdAt: "desc"})
     res.render("articles/index", { articles: articles })
 })
 
